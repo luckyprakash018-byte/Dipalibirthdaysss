@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff1f6">
+<meta name="description" content="A little birthday world made just for Dipali.">
+<title>A Little World for Dipali 🎀</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap');
+:root{--pink:#fff1f6;--pink2:#ffdce9;--lav:#e9e0ff;--lilac:#b69ad8;--mint:#e1f4e9;--cream:#fff8e9;--ink:#55465f;--muted:#8c7d91;--white:#fffdfd;--shadow:0 16px 45px #9f7ba51c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#fff7f9,#f7f1ff 52%,#fff9ed);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;border:0}.serif{font-family:'Playfair Display',serif}.script{font-family:'Sacramento',cursive}.wrap{width:min(100% - 30px,720px);margin:auto}.hidden{display:none!important}
+#intro{position:fixed;inset:0;z-index:20;display:grid;place-items:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 25%,#fff 0,#fff1f6 45%,#e9e0ff 100%);transition:opacity .8s,visibility .8s}#intro.gone{opacity:0;visibility:hidden;pointer-events:none}.intro-card{width:min(100%,430px);padding:35px 22px;border:1px solid #fff;border-radius:32px;background:#ffffffa8;box-shadow:var(--shadow);backdrop-filter:blur(12px)}.gift{font-size:78px;display:inline-block;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 8px 8px #bd8fb833)}.intro-card h1{font:42px 'Playfair Display',serif;margin:12px 0 8px;color:#8b6ca9}.intro-card p{color:var(--muted);line-height:1.6;margin:0 0 22px}
+.btn{padding:14px 21px;border-radius:999px;background:linear-gradient(110deg,#d8c4f4,#f8c8dc);color:#614c70;font-weight:700;box-shadow:0 8px 20px #c6a4d544;transition:transform .2s,filter .2s}.btn:active{transform:scale(.97)}.btn.secondary{background:#fff;border:1px solid #eedff4;box-shadow:none}.btn.small{padding:10px 15px;font-size:13px}
+header{padding:18px 0 8px;display:flex;justify-content:space-between;align-items:center}.brand{font:24px 'Sacramento',cursive;color:#a17fbd}.music-toggle{border-radius:50px;padding:10px 13px;background:#ffffffbd;color:#806694;box-shadow:var(--shadow)}
+.hero{text-align:center;padding:46px 8px 34px;position:relative}.eyebrow{letter-spacing:2px;text-transform:uppercase;font-size:10px;font-weight:700;color:#ad8bc3}.hero h1{font:clamp(43px,12vw,68px)/1.05 'Playfair Display',serif;color:#9474ae;margin:13px 0}.hero .sub{max-width:440px;margin:0 auto;color:var(--muted);line-height:1.7;font-size:14px}.hero-art{font-size:28px;margin:20px 0 4px;letter-spacing:8px;animation:float 4s ease-in-out infinite}
+.section{padding:28px 0 35px}.section-head{text-align:center;margin-bottom:20px}.section-head .mini{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#b08dc7;font-weight:700}.section-head h2{font:clamp(27px,7vw,38px) 'Playfair Display',serif;color:#8f70a9;margin:7px 0}.section-head p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+.panel{background:#ffffffb8;border:1px solid #fff;border-radius:26px;padding:18px;box-shadow:var(--shadow)}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.photo{background:#fff;padding:9px 9px 30px;border-radius:5px;box-shadow:0 8px 22px #8d71951c;transform:rotate(var(--rot));position:relative;min-width:0}.photo img{width:100%;aspect-ratio:1/1.12;object-fit:cover;background:linear-gradient(135deg,#ffe7ef,#e9e0ff);display:block}.photo .caption{position:absolute;bottom:8px;left:5px;right:5px;text-align:center;font:16px 'Sacramento',cursive;color:#8f729e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.photo input{width:100%;font-size:10px;margin-top:7px;color:var(--muted)}.upload-note{font-size:11px;text-align:center;color:var(--muted);margin:14px 0 0}
+.notes{display:grid;gap:11px}.note{width:100%;text-align:left;background:linear-gradient(120deg,#fff8fb,#f7f2ff);border:1px solid #f1e5f4;border-radius:18px;padding:15px;color:var(--ink);display:flex;gap:12px;align-items:center}.note .emoji{font-size:25px}.note strong{display:block;font-size:13px}.note small{color:var(--muted);font-size:11px}.note-content{margin-top:10px;padding:16px;border-radius:16px;background:#fff9ed;line-height:1.7;font-size:14px;animation:appear .35s ease}
+.cake-wrap{text-align:center;padding:18px 8px 10px}.cake{font-size:104px;display:inline-block;filter:drop-shadow(0 12px 9px #b68dbb33);animation:bob 3s ease-in-out infinite}.flames{font-size:25px;letter-spacing:13px;margin-bottom:-5px;transition:opacity .3s}.flames.off{opacity:0}.cake-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:16px 0 8px}.cake-message{min-height:48px;font:24px 'Sacramento',cursive;color:#a17fbd;margin:12px 0}
+.timeline{position:relative;padding-left:25px}.timeline:before{content:"";position:absolute;left:8px;top:7px;bottom:7px;width:2px;background:linear-gradient(#f2bfd4,#cdb9ed)}.moment{position:relative;margin:0 0 17px;padding:14px;background:#fff;border-radius:17px;box-shadow:0 6px 18px #92769c12}.moment:before{content:"";position:absolute;left:-22px;top:20px;width:10px;height:10px;border-radius:50%;background:#c4a6df;border:3px solid #fff}.moment strong{font-size:13px}.moment p{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+.secret{text-align:center;background:linear-gradient(135deg,#fff1f6,#f1eaff);padding:24px 17px;border-radius:24px}.secret .letter{font-size:38px}.secret p{font-size:13px;line-height:1.7;color:var(--muted)}.final{text-align:center;padding:45px 12px 55px}.final h2{font:clamp(33px,9vw,48px) 'Sacramento',cursive;color:#a17fbd;margin:10px}.final p{font-size:13px;line-height:1.8;color:var(--muted);max-width:420px;margin:0 auto}
+footer{text-align:center;padding:10px 0 30px;color:#b49ebd;font-size:11px}
+#player{display:none}#confetti{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}.piece{position:absolute;top:-20px;width:8px;height:13px;border-radius:3px;animation:fall var(--dur) linear forwards;left:var(--left);background:var(--color)}
+.floaties{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}.floaty{position:absolute;left:var(--x);top:105%;font-size:var(--s);opacity:.55;animation:rise var(--t) linear infinite;animation-delay:var(--d)}
+.modal{position:fixed;inset:0;z-index:40;background:#4c3a5b66;display:grid;place-items:center;padding:20px}.modal-box{background:#fffafd;border-radius:25px;padding:24px;max-width:420px;width:100%;text-align:center;box-shadow:var(--shadow)}.modal-box h3{font:27px 'Playfair Display',serif;color:#9877b1}.modal-box p{font-size:14px;line-height:1.8;color:var(--muted);white-space:pre-line}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}@keyframes float{50%{transform:translateY(-7px)}}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}@keyframes rise{to{transform:translateY(-120vh) rotate(30deg);opacity:0}}
+@media(min-width:600px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding-top:65px}.section{padding-top:38px}}
+</style>
+</head>
+<body>
+<div class="floaties" aria-hidden="true" id="floaties"></div><div id="confetti"></div>
+<section id="intro">
+ <div class="intro-card">
+  <div class="gift">🎁</div>
+  <div class="eyebrow">a tiny surprise, made with love</div>
+  <h1>Hey, Dipali! 💗</h1>
+  <p>Someone has made a little world just for you.<br>Ready to unwrap your birthday magic?</p>
+  <button class="btn" id="openGift">Open Your Surprise ✨</button>
+ </div>
+</section>
+<div class="wrap">
+<header><div class="brand">a little world for Dipali</div><button class="music-toggle" id="musicBtn">♫ Play our song</button></header>
+<main>
+<section class="hero">
+ <div class="eyebrow">today is all about you</div>
+ <h1 class="serif">Happy Birthday,<br>Dipali! 🎀</h1>
+ <p class="sub">A little collection of smiles, memories and all the lovely things that make you wonderfully you.</p>
+ <div class="hero-art">🦋 ✨ 🌷 ✨ 🦋</div>
+ <button class="btn small" onclick="document.querySelector('#memories').scrollIntoView({behavior:'smooth'})">Explore your surprise ↓</button>
+</section>
+<section class="section" id="memories">
+ <div class="section-head"><div class="mini">little snapshots</div><h2>Our Memory Garden</h2><p>Add your favourite photos and give each one a tiny caption.</p></div>
+ <div class="panel">
+  <div class="gallery" id="gallery"></div>
+  <p class="upload-note">Tap “Choose photo” on any frame to add a picture from your phone. 🌸</p>
+ </div>
+</section>
+<section class="section" id="letters">
+ <div class="section-head"><div class="mini">sealed with a hug</div><h2>Little Notes for You</h2><p>Open whichever note your heart needs today.</p></div>
+ <div class="notes" id="notes"></div>
+</section>
+<section class="section" id="cakeSection">
+ <div class="section-head"><div class="mini">make a wish</div><h2>A Cake Just for You</h2><p>Take a deep breath, make your wish and let the magic happen.</p></div>
+ <div class="panel cake-wrap">
+  <div class="flames" id="flames">🕯️ 🕯️ 🕯️</div>
+  <div class="cake" id="cake">🎂</div>
+  <div class="cake-actions">
+   <button class="btn small" id="wishBtn">Make a Wish ✨</button>
+   <button class="btn small secondary" id="blowBtn">Blow Candles 💨</button>
+   <button class="btn small secondary" id="cutBtn">Cut the Cake 🍰</button>
+  </div>
+  <div class="cake-message" id="cakeMessage">This wish is just between you and the stars…</div>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><div class="mini">chapters of us</div><h2>Our Little Timeline</h2><p>Some moments deserve their own tiny spotlight.</p></div>
+ <div class="panel"><div class="timeline" id="timeline"></div><p class="upload-note">Edit these moments in the SETTINGS section inside this file.</p></div>
+</section>
+<section class="section">
+ <div class="secret">
+  <div class="letter">💌</div><div class="eyebrow">psst… one last thing</div>
+  <h2 class="serif" style="color:#9877b1">A Little Secret for You</h2>
+  <p>There's one more message waiting, just for you.</p>
+  <button class="btn" id="secretBtn">Open your secret letter 💗</button>
+ </div>
+</section>
+<section class="final">
+ <div style="font-size:30px">🌷 🦋 🌷</div>
+ <h2>Keep shining, Dipali!</h2>
+ <p>You're one of my favourite people in this world. I hope this new year of your life brings you gentle days, loud laughter, beautiful surprises and everything your heart is wishing for. Happy Birthday! 💗</p>
+ <div style="font-size:25px;margin-top:18px">🎀 ✨ 💐 ✨ 🎀</div>
+</section>
+</main>
+<footer>Made with lots of love, just for Dipali. ♡</footer>
+</div>
+<audio id="player" loop></audio>
+<div class="modal hidden" id="modal"><div class="modal-box"><div style="font-size:35px" id="modalEmoji">💌</div><h3 id="modalTitle">A little note</h3><p id="modalText"></p><button class="btn small" id="closeModal">Close with a hug ♡</button></div></div>
+<script>
+// ===================== PERSONALIZE HERE =====================
+const SETTINGS = {
+  friendName: "Dipali",
+  notes: [
+    {emoji:"🌧️", title:"Open when you're sad", hint:"A soft reminder for a cloudy day", text:"Hey Dipali, even the prettiest skies have rainy days. You don't have to be cheerful all the time. Take a breath, be gentle with yourself, and remember that you are loved more than you know. Sending you the biggest hug. 💗"},
+    {emoji:"💌", title:"Open when you miss me", hint:"A little friendship hug", text:"Consider this your virtual hug! Distance or busy days can't make our memories any less special. Think of one of our funniest moments and smile. I'll always be cheering for you. 🫶"},
+    {emoji:"🌈", title:"Open when you need a smile", hint:"Emergency dose of happy", text:"Official reminder: you are iconic, adorable and slightly dramatic in the best possible way. Now drink some water, fix your crown and go make the day yours. 👑"},
+    {emoji:"🎀", title:"A letter just for you", hint:"The birthday edition", text:"Happy Birthday, Dipali! Thank you for being exactly who you are. I hope you never forget how special you are and how much happiness you bring to the people around you. Here's to more memories, laughter and silly conversations. 💗"}
+  ],
+  moments: [
+    {date:"The beginning", title:"Where our story started", text:"Add a little line about how you became friends."},
+    {date:"A favourite memory", title:"The moment we still laugh about", text:"Add your funniest shared memory here."},
+    {date:"Today", title:"Celebrating YOU", text:"A new chapter, more adventures and countless reasons to smile."}
+  ],
+  secretLetter: "Dear Dipali,\n\nI may not say it every day, but I'm genuinely grateful to have you as my friend. Thank you for all the laughs, the random conversations and the memories that make ordinary days special.\n\nI hope life is extra kind to you. Keep dreaming big, keep smiling and never forget how amazing you are.\n\nHappy Birthday, bestie! 💗🎀"
+};
+// ============================================================
+
+const $ = id => document.getElementById(id);
+const gallery = $("gallery");
+for(let i=0;i<12;i++){
+ const card=document.createElement("div");card.className="photo";card.style.setProperty("--rot",`${(i%2?1:-1)*(i%3+1)}deg`);
+ const img=document.createElement("img");img.alt=`Memory ${i+1}`;img.src=placeholder(i);
+ const caption=document.createElement("div");caption.className="caption";caption.textContent=["a happy little moment ♡","one for the scrapbook","the good old days","my favourite chaos"][i%4];
+ const input=document.createElement("input");input.type="file";input.accept="image/*";input.setAttribute("aria-label","Choose photo");
+ input.addEventListener("change",e=>{const f=e.target.files[0];if(f){img.src=URL.createObjectURL(f);caption.textContent=f.name.replace(/\.[^.]+$/,"").slice(0,28)}});
+ card.append(img,caption,input);gallery.append(card);
+}
+function placeholder(i){const colors=[["#ffe2ed","#e9ddff"],["#fcebdc","#f6dce8"],["#dff2e8","#e9e0ff"],["#f7e5ff","#fff1dc"]];const c=colors[i%4];const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="460"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><text x="50%" y="45%" text-anchor="middle" font-size="72">🌷</text><text x="50%" y="61%" text-anchor="middle" fill="#92789e" font-family="sans-serif" font-size="20">your photo here</text></svg>`;return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg)}
+SETTINGS.notes.forEach((n,i)=>{const b=document.createElement("button");b.className="note";b.innerHTML=`<span class="emoji">${n.emoji}</span><span><strong>${n.title}</strong><small>${n.hint}</small></span><span style="margin-left:auto">♡</span>`;b.onclick=()=>showModal(n.emoji,n.title,n.text);$("notes").append(b)});
+SETTINGS.moments.forEach(m=>{const d=document.createElement("div");d.className="moment";d.innerHTML=`<div class="eyebrow">${m.date}</div><strong>${m.title}</strong><p>${m.text}</p>`;$("timeline").append(d)});
+function showModal(emoji,title,text){$("modalEmoji").textContent=emoji;$("modalTitle").textContent=title;$("modalText").textContent=text;$("modal").classList.remove("hidden")}
+$("closeModal").onclick=()=>$("modal").classList.add("hidden");$("modal").addEventListener("click",e=>{if(e.target===$("modal"))$("modal").classList.add("hidden")});
+$("secretBtn").onclick=()=>showModal("💗","For my dearest Dipali",SETTINGS.secretLetter);
+$("openGift").onclick=()=>{$("intro").classList.add("gone");confetti(90);setTimeout(()=>$("intro").remove(),900)};
+function confetti(count=65){const root=$("confetti");const colors=["#f5b8d0","#cbb5ed","#f8dca6","#b9dfca","#fff"];for(let i=0;i<count;i++){const p=document.createElement("i");p.className="piece";p.style.setProperty("--left",Math.random()*100+"%");p.style.setProperty("--dur",3+Math.random()*3+"s");p.style.setProperty("--color",colors[i%colors.length]);p.style.animationDelay=Math.random()*.6+"s";root.append(p);setTimeout(()=>p.remove(),7000)}}
+$("wishBtn").onclick=()=>{$("cakeMessage").textContent="Close your eyes… your wish is on its way to the stars. ✨";confetti(35)};
+$("blowBtn").onclick=()=>{$("flames").classList.add("off");$("cakeMessage").textContent="Wish made! May something wonderful find you. 💫";confetti(45)};
+$("cutBtn").onclick=()=>{$("cake").textContent="🍰";$("cakeMessage").textContent="A slice of happiness, specially for you, Dipali! 🎀";confetti(130)};
+const floaties=["♡","✦","🦋","🌸","✿","🎀"];for(let i=0;i<18;i++){const s=document.createElement("span");s.className="floaty";s.textContent=floaties[i%floaties.length];s.style.setProperty("--x",Math.random()*100+"%");s.style.setProperty("--s",12+Math.random()*18+"px");s.style.setProperty("--t",12+Math.random()*15+"s");s.style.setProperty("--d",-Math.random()*20+"s");$("floaties").append(s)}
+const player=$("player");let musicUrl=null;
+$("musicBtn").onclick=()=>{if(player.paused){if(!player.src){const f=document.createElement("input");f.type="file";f.accept="audio/*";f.onchange=()=>{if(f.files[0]){musicUrl=URL.createObjectURL(f.files[0]);player.src=musicUrl;player.play();$("musicBtn").textContent="♫ Pause song"}};f.click();return}player.play();$("musicBtn").textContent="♫ Pause song"}else{player.pause();$("musicBtn").textContent="♫ Play our song"}};
+</script>
+</body></html>
